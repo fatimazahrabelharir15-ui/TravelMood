@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/web/index.jsp</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/web/connexion.jsp</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/Entite/Utilisateur.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/DAO/Connect.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/Entite/Sejour.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/Entite/Profil.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/DAO/UtilisateurDAO.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/controller/UtilisateurControlleur.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/web/recommande.jsp</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/web/details.jsp</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/web/profil.jsp</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/web/admin.jsp</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/DAO/SejourDAO.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/controller/SejourControlleur.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/web/sejours.jsp</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/Entite/TypeVacance.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/controller/ListerSejourControlleur.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/web/header.jsp</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/controller/SejourParTypeControlleur.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/controller/DetailControlleur.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/web/footer.jsp</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/web/reservation.jsp</file>
+        </group>
+    </open-files>
+</project-private>
