@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 @WebServlet(name = "DetailControlleur", urlPatterns = {"/DetailControlleur"})
@@ -25,6 +26,9 @@ public class DetailControlleur extends HttpServlet {
             int id = Integer.parseInt(request.getParameter("idSejour"));
             SejourDAO dao=new SejourDAO();
             Sejour s=dao.getOneDetail(id);
+            HttpSession session = request.getSession();
+            session.setAttribute("sejour", s);
+            session.setAttribute("idSejour",id);
             request.setAttribute("detailSejour", s);
             RequestDispatcher rd=request.getRequestDispatcher("/details.jsp");
             rd.forward(request, response);

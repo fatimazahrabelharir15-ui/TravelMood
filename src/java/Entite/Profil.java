@@ -1,14 +1,14 @@
 package Entite;
 
 public class Profil {
-    private int id,idUtilisateur;
-    private String preference,typeVacance;
-    private double budget;
+    private int id,idUtilisateur,typeVacance;
+    private String preference;
+    private float budget;
 
     public Profil() {
     }
 
-    public Profil(int id, int idUtilisateur, String preference, String typeVacance, double budget) {
+    public Profil(int id, int idUtilisateur, String preference, int typeVacance, float budget) {
         this.id = id;
         this.idUtilisateur = idUtilisateur;
         this.preference = preference;
@@ -40,19 +40,19 @@ public class Profil {
         this.preference = preference;
     }
 
-    public String getTypeVacance() {
+    public int getTypeVacance() {
         return typeVacance;
     }
 
-    public void setTypeVacance(String typeVacance) {
+    public void setTypeVacance(int typeVacance) {
         this.typeVacance = typeVacance;
     }
 
-    public double getBudget() {
+    public float getBudget() {
         return budget;
     }
 
-    public void setBudget(double budget) {
+    public void setBudget(float budget) {
         this.budget = budget;
     }
     

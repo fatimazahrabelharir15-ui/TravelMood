@@ -2,15 +2,15 @@ package Entite;
 
 public class Utilisateur {
     private int id;
-    private String nom,premon,email,telephone,motpass,role;
+    private String nom,prenom,email,telephone,motpass,role;
 
     public Utilisateur() {
     }
 
-    public Utilisateur(int id, String nom, String premon, String email, String telephone, String motpass, String role) {
+    public Utilisateur(int id, String nom, String prenom, String email, String telephone, String motpass, String role) {
         this.id = id;
         this.nom = nom;
-        this.premon = premon;
+        this.prenom = prenom;
         this.email = email;
         this.telephone = telephone;
         this.motpass = motpass;
@@ -33,12 +33,12 @@ public class Utilisateur {
         this.nom = nom;
     }
 
-    public String getPremon() {
-        return premon;
+    public String getPrenom() {
+        return prenom;
     }
 
-    public void setPremon(String premon) {
-        this.premon = premon;
+    public void setPremon(String prenom) {
+        this.prenom = prenom;
     }
 
     public String getEmail() {
@@ -73,8 +73,5 @@ public class Utilisateur {
         this.role = role;
     }
 
-    public String getPrenom() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
     
 }

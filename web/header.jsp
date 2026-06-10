@@ -18,7 +18,7 @@
       <ul class="navbar-nav me-auto">
         <li class="nav-item"><a class="nav-link" href="SejourControlleur">Accueil</a></li>
         <li class="nav-item"><a class="nav-link" href="ListerSejourControlleur">Séjours</a></li>
-        <li class="nav-item"><a class="nav-link" href="recommande.jsp">Pour moi</a></li>
+        <li class="nav-item"><a class="nav-link" href="ProfilControlleur">Pour moi</a></li>
       </ul>
       <div class="d-flex gap-2">
         <a href="profil.jsp" class="btn btn-outline-light">Mon profil</a>

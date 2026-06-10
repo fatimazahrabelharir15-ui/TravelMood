@@ -4,8 +4,6 @@ import DAO.UtilisateurDAO;
 import Entite.Utilisateur;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,66 +26,66 @@ public class UtilisateurControlleur extends HttpServlet {
             
             if (user == null) {
                 // CAS 1 : L'utilisateur n'est pas connecté
-                // On garde l'ID du séjour en session pour s'en souvenir après la connexion
+                // On met l'ID du séjour de côté en session
                 session.setAttribute("redirectIdSejour", idSejour);
-                
-                // Redirection vers ta page de connexion (adapter le nom du fichier si nécessaire, ex: login.jsp ou connexion.jsp)
                 response.sendRedirect(request.getContextPath() + "/connexion.jsp");
             } else {
                 // CAS 2 : L'utilisateur est déjà connecté
-                // Redirection directe vers ton contrôleur de réservation (ex: ReservationControlleur)
+                // On passe par le contrôleur de réservation en lui transmettant l'ID
                 response.sendRedirect(request.getContextPath() + "/ReservationControlleur?idSejour=" + idSejour);
             }
         } else {
-            // Si pas d'idSejour, redirection classique par défaut vers le catalogue
             response.sendRedirect(request.getContextPath() + "/SejourControlleur");
         }
-       
     }
-
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       PrintWriter out=response.getWriter();
+        PrintWriter out = response.getWriter();
         try {
-            String email=request.getParameter("email");
-            String password=request.getParameter("password");
-            UtilisateurDAO dao=new UtilisateurDAO();
-            Utilisateur user=dao.getUser(email, password);
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
+            UtilisateurDAO dao = new UtilisateurDAO();
+            Utilisateur user = dao.getUser(email, password);
             RequestDispatcher rd;
-            if (user != null) 
-            {
+            
+            if (user != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
-                session.setMaxInactiveInterval(15 * 60);
+                
+                
                 if (user.getRole().equals("client")) {
-
-                    // Au lieu du RequestDispatcher, on redirige proprement en GET
-                    response.sendRedirect(request.getContextPath() + "/SejourControlleur");
+                    // --- SYNCHRONISATION ICI ---
+                    // On vérifie si l'utilisateur voulait réserver un séjour avant de se connecter
+                    String idSejourEnAttente = (String) session.getAttribute("redirectIdSejour");
+                    
+                    if (idSejourEnAttente != null) {
+                        session.removeAttribute("redirectIdSejour"); // Nettoyage de la session
+                        // On l'envoie vers le contrôleur de réservation avec son ID retenu
+                        response.sendRedirect(request.getContextPath() + "/ReservationControlleur?idSejour=" + idSejourEnAttente);
+                    } else {
+                        response.sendRedirect(request.getContextPath() + "/SejourControlleur");
+                    }
                     return; 
                 } else {
                     rd = request.getRequestDispatcher("/admin.jsp");
                 }
                 rd.forward(request, response);
                 return;
-            }
-            else {
+            } else {
                 request.setAttribute("msg", "Compte inexistant ou mot de passe incorrect");
-
-                rd = request.getRequestDispatcher("/connexion.jsp"); 
+                rd = request.getRequestDispatcher("/ReservationControlleur"); 
                 rd.forward(request, response);
                 return; 
-        }
+            }
         } catch (Exception e) {
             out.println(e.getMessage());
         }
     }
 
-   
     @Override
     public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+        return "Gestion des connexions et suivi des intentions de réservation";
+    }
 }
