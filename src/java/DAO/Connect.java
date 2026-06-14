@@ -14,9 +14,11 @@ public class Connect {
             Class.forName("org.postgresql.Driver");
             
             // 2. Tentative de connexion
-            String url = "jdbc:postgresql://localhost:5432/dbTravelMood";
-            con = DriverManager.getConnection(url, "postgres", "065225");
-        }
+           con = DriverManager.getConnection(
+    "jdbc:postgresql://localhost:5432/travelmood",
+    "postgres",
+    "NouveauMotDePasse123"
+);      }
         return con;
     }
 }

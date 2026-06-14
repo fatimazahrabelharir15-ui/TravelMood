@@ -11,7 +11,7 @@
     <!-- Boutons d'action -->
     <div class="d-flex justify-content-center gap-3 flex-wrap">
         <a href="recommande.jsp" class="btn btn-warning btn-lg fw-bold" style="background-color: #E86E4D; border-color: #E86E4D; color: white;"> Trouver mon voyage</a>
-        <a href="sejours.jsp" class="btn btn-outline-light btn-lg">Voir tous les séjours</a>
+        <a href="ListerSejourControlleur" class="btn btn-outline-light btn-lg">Voir tous les séjours</a>
     </div>
 </div>
 
@@ -48,7 +48,7 @@
             <div class="card-footer bg-white border-0 d-flex justify-content-between align-items-center pb-3">
                 <strong style="color: #E86E4D; font-size: 1.1rem;"><%= s.getPrix()%> </strong>
                 <!-- LIEN VERS LES DÉTAILS DU SÉJOUR 1 -->
-                <a href="details.jsp?idSejour=<%=s.getId()%>" class="btn btn-sm btn-outline-dark">Voir détails</a>
+                <a href="DetailControlleur?idSejour=<%=s.getId()%>" class="btn btn-sm btn-outline-dark">Voir détails</a>
             </div>
         </div>
     </div>

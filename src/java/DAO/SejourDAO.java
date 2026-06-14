@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class SejourDAO {
     public ArrayList<Sejour> getAll() throws SQLException, Exception{
         ArrayList<Sejour> list=new ArrayList<>();
-        String sql="select * from sejour ";
+        String sql = "SELECT * FROM sejour ORDER BY id_sejour DESC";
         Statement st=Connect.getCon().createStatement();
         ResultSet rs=st.executeQuery(sql);
         while(rs.next()){
@@ -101,13 +101,14 @@ public class SejourDAO {
         
         if (rs.next()) {
             return new Sejour(
-                rs.getInt("id_sejour"),
-                rs.getString("titre"),
-                rs.getString("description"),
-                rs.getString("humeur"),
-                rs.getString("image"),
-                rs.getFloat("prix")
-            );
+    rs.getInt("id_sejour"),
+    rs.getString("type_vacance"),
+    rs.getString("titre"),
+    rs.getString("description"),
+    rs.getString("humeur"),
+    rs.getString("image"),
+    rs.getFloat("prix")
+);
         }
     } catch (Exception ex) {
         // Reste ici pour intercepter les vraies erreurs sans faire crasher Tomcat
@@ -115,6 +116,102 @@ public class SejourDAO {
     }
     return null;
 }
-    
-    
+    public boolean delete(int id) throws Exception {
+
+    String sql =
+            "DELETE FROM sejour WHERE id_sejour=?";
+
+    PreparedStatement pst =
+            Connect.getCon().prepareStatement(sql);
+
+    pst.setInt(1, id);
+
+    int n = pst.executeUpdate();
+
+    return n > 0;
+}
+ 
+    public boolean add(Sejour s) throws Exception {
+
+    String sql =
+        "INSERT INTO sejour(titre, description, prix, type_vacance, humeur, image) VALUES (?, ?, ?, ?, ?, ?)";
+
+    PreparedStatement pst =
+        Connect.getCon().prepareStatement(sql);
+
+    pst.setString(1, s.getTitre());
+    pst.setString(2, s.getDescription());
+    pst.setFloat(3, s.getPrix());
+    pst.setString(4, s.getTypeVacance());
+    pst.setString(5, s.getHumeur());
+    pst.setString(6, s.getImage());
+
+    int n = pst.executeUpdate();
+
+    return n > 0;
+}
+    public boolean update(Sejour s) throws Exception {
+
+    String sql =
+        "UPDATE sejour SET titre=?, description=?, prix=?, type_vacance=?, humeur=?, image=? WHERE id_sejour=?";
+
+    PreparedStatement pst =
+        Connect.getCon().prepareStatement(sql);
+
+    pst.setString(1, s.getTitre());
+    pst.setString(2, s.getDescription());
+    pst.setFloat(3, s.getPrix());
+    pst.setString(4, s.getTypeVacance());
+    pst.setString(5, s.getHumeur());
+    pst.setString(6, s.getImage());
+    pst.setInt(7, s.getId());
+
+    int n = pst.executeUpdate();
+
+    return n > 0;
+}
+    public int countSejours() throws Exception {
+
+    String sql = "SELECT COUNT(*) FROM sejour";
+
+    Statement st = Connect.getCon().createStatement();
+
+    ResultSet rs = st.executeQuery(sql);
+
+    if (rs.next()) {
+        return rs.getInt(1);
+    }
+
+    return 0;
+}
+    public ArrayList<String> getAllHumeurs() throws Exception {
+
+    ArrayList<String> liste = new ArrayList<>();
+
+    String sql = "SELECT DISTINCT humeur FROM sejour ORDER BY humeur";
+
+    Statement st = Connect.getCon().createStatement();
+    ResultSet rs = st.executeQuery(sql);
+
+    while (rs.next()) {
+        liste.add(rs.getString("humeur"));
+    }
+
+    return liste;
+}
+    public ArrayList<String> getAllTypesVacance() throws Exception {
+
+    ArrayList<String> liste = new ArrayList<>();
+
+    String sql = "SELECT DISTINCT type_vacance FROM sejour ORDER BY type_vacance";
+
+    Statement st = Connect.getCon().createStatement();
+    ResultSet rs = st.executeQuery(sql);
+
+    while (rs.next()) {
+        liste.add(rs.getString("type_vacance"));
+    }
+
+    return liste;
+}
 }

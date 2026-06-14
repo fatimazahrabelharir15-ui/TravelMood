@@ -29,4 +29,17 @@ public class UtilisateurDAO {
         int n=pst.executeUpdate();
         return n!=0;
     }
+    public int countClients() throws Exception {
+
+    String sql = "SELECT COUNT(*) FROM utilisateur WHERE role = 'client'";
+
+    PreparedStatement pst = Connect.getCon().prepareStatement(sql);
+    ResultSet rs = pst.executeQuery();
+
+    if (rs.next()) {
+        return rs.getInt(1);
+    }
+
+    return 0;
+}
 }

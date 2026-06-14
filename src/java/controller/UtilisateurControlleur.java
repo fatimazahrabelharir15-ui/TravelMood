@@ -69,10 +69,11 @@ public class UtilisateurControlleur extends HttpServlet {
                     }
                     return; 
                 } else {
-                    rd = request.getRequestDispatcher("/admin.jsp");
-                }
-                rd.forward(request, response);
-                return;
+                        response.sendRedirect(
+                        request.getContextPath()
+                        + "/AdminControlleur");
+    return;
+}   
             } else {
                 request.setAttribute("msg", "Compte inexistant ou mot de passe incorrect");
                 rd = request.getRequestDispatcher("/ReservationControlleur"); 
