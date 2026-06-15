@@ -1,6 +1,7 @@
 package Entite;
 public class Sejour {
-    private int id,id_typeVacance;
+    private int id;
+    private String type_vacance;
     private String titre,description,humeur,image;
     private float prix;
 
@@ -16,15 +17,22 @@ public class Sejour {
         this.prix = prix;
     }
 
-    public Sejour(int id, int id_typeVacance, String titre, String description, String humeur, String image, float prix) {
-        this.id = id;
-        this.id_typeVacance = id_typeVacance;
-        this.titre = titre;
-        this.description = description;
-        this.humeur = humeur;
-        this.image = image;
-        this.prix = prix;
-    }
+    public Sejour(int id,
+              String typeVacance,
+              String titre,
+              String description,
+              String humeur,
+              String image,
+              float prix) {
+
+    this.id = id;
+    this.type_vacance = typeVacance;
+    this.titre = titre;
+    this.description = description;
+    this.humeur = humeur;
+    this.image = image;
+    this.prix = prix;
+}
     
 
     public int getId() {
@@ -75,13 +83,13 @@ public class Sejour {
         this.prix = prix;
     }
 
-    public int getId_typeVacance() {
-        return id_typeVacance;
-    }
+   public String getTypeVacance() {
+    return type_vacance;
+}
 
-    public void setId_typeVacance(int id_typeVacance) {
-        this.id_typeVacance = id_typeVacance;
-    }
+public void setTypeVacance(String typeVacance) {
+    this.type_vacance = typeVacance;
+}
     
     
 }

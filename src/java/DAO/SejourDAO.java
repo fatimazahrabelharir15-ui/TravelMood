@@ -6,16 +6,24 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class SejourDAO {
-    public ArrayList<Sejour> getAll() throws SQLException, Exception{
-        ArrayList<Sejour> list=new ArrayList<>();
-        String sql="select * from sejour ";
-        Statement st=Connect.getCon().createStatement();
-        ResultSet rs=st.executeQuery(sql);
-        while(rs.next()){
-            list.add(new Sejour(rs.getInt("id_sejour"),rs.getString("titre"),rs.getString("description"),rs.getString("humeur"),rs.getString("image"),rs.getFloat("prix")));
-        }
-        return list;
+    public ArrayList<Sejour> getAll() throws SQLException, Exception {
+    ArrayList<Sejour> list = new ArrayList<>();
+    String sql = "SELECT * FROM sejour ORDER BY id_sejour DESC";
+    Statement st = Connect.getCon().createStatement();
+    ResultSet rs = st.executeQuery(sql);
+    while (rs.next()) {
+        // Utilisation du constructeur stable sans le champ textuel manquant
+        list.add(new Sejour(
+            rs.getInt("id_sejour"),
+            rs.getString("titre"),
+            rs.getString("description"),
+            rs.getString("humeur"),
+            rs.getString("image"),
+            rs.getFloat("prix")
+        ));
     }
+    return list;
+}
     public ArrayList<Sejour> getSejoursByHumeur(String humeurFiltre) throws Exception {
         ArrayList<Sejour> list = new ArrayList<>();
         String sql;
@@ -100,6 +108,7 @@ public class SejourDAO {
         ResultSet rs = pst.executeQuery();
         
         if (rs.next()) {
+            // Utilisation du constructeur standard à 6 paramètres (id, titre, description, humeur, image, prix)
             return new Sejour(
                 rs.getInt("id_sejour"),
                 rs.getString("titre"),
@@ -110,11 +119,131 @@ public class SejourDAO {
             );
         }
     } catch (Exception ex) {
-        // Reste ici pour intercepter les vraies erreurs sans faire crasher Tomcat
+        System.out.println("-> ERREUR DANS SEJOURDAO.getOneDetail : " + ex.getMessage());
         ex.printStackTrace(); 
     }
     return null;
 }
+    public boolean delete(int id) throws Exception {
+
+    String sql =
+            "DELETE FROM sejour WHERE id_sejour=?";
+
+    PreparedStatement pst =
+            Connect.getCon().prepareStatement(sql);
+
+    pst.setInt(1, id);
+
+    int n = pst.executeUpdate();
+
+    return n > 0;
+}
+ 
+    public boolean add(Sejour s) throws Exception {
+     // Remplacement de type_vacance par id_type_vacance
+     String sql = "INSERT INTO sejour(titre, description, prix, id_type_vacance, humeur, image) VALUES (?, ?, ?, ?, ?, ?)";
+
+     PreparedStatement pst = Connect.getCon().prepareStatement(sql);
+
+     pst.setString(1, s.getTitre());
+     pst.setString(2, s.getDescription());
+     pst.setFloat(3, s.getPrix());
+
+     // Conversion de la chaîne (ex: "2") en entier pour PostgreSQL
+     pst.setInt(4, Integer.parseInt(s.getTypeVacance())); 
+
+     pst.setString(5, s.getHumeur());
+     pst.setString(6, s.getImage());
+
+     int n = pst.executeUpdate();
+     return n > 0;
+ }
+public boolean update(Sejour s) throws Exception {
+    // Remplacement de type_vacance par id_type_vacance
+    String sql = "UPDATE sejour SET titre=?, description=?, prix=?, id_type_vacance=?, humeur=?, image=? WHERE id_sejour=?";
+
+    PreparedStatement pst = Connect.getCon().prepareStatement(sql);
+
+    pst.setString(1, s.getTitre());
+    pst.setString(2, s.getDescription());
+    pst.setFloat(3, s.getPrix());
     
+    // Conversion en entier pour correspondre à la clé étrangère PostgreSQL
+    pst.setInt(4, Integer.parseInt(s.getTypeVacance())); 
     
+    pst.setString(5, s.getHumeur());
+    pst.setString(6, s.getImage());
+    pst.setInt(7, s.getId());
+
+    int n = pst.executeUpdate();
+    return n > 0;
+}
+    public int countSejours() throws Exception {
+
+    String sql = "SELECT COUNT(*) FROM sejour";
+    Statement st = Connect.getCon().createStatement();
+    ResultSet rs = st.executeQuery(sql);
+    if (rs.next()) {
+        return rs.getInt(1);
+    }
+    return 0;
+}
+    public ArrayList<String> getAllHumeurs() throws Exception {
+
+    ArrayList<String> liste = new ArrayList<>();
+
+    String sql = "SELECT DISTINCT humeur FROM sejour ORDER BY humeur";
+
+    Statement st = Connect.getCon().createStatement();
+    ResultSet rs = st.executeQuery(sql);
+
+    while (rs.next()) {
+        liste.add(rs.getString("humeur"));
+    }
+
+    return liste;
+}
+    public ArrayList<String> getAllTypesVacance() throws Exception {
+
+    ArrayList<String> liste = new ArrayList<>();
+
+    // Correction de la requête : On va chercher le libellé textuel dans la table type_vacance grâce à la clé étrangère
+    String sql = "SELECT DISTINCT tv.type_vacance " +
+                 "FROM sejour s " +
+                 "INNER JOIN type_vacance tv ON s.id_type_vacance = tv.id_type_vacance " +
+                 "ORDER BY tv.type_vacance";
+
+    Statement st = Connect.getCon().createStatement();
+    ResultSet rs = st.executeQuery(sql);
+
+    while (rs.next()) {
+        // Le nom du champ récupéré reste "type_vacance" grâce au SELECT tv.type_vacance
+        liste.add(rs.getString("type_vacance"));
+    }
+
+    return liste;
+}
+    public static Sejour getSejourRecommande(int idTypeVacance) {
+        Sejour sejour = null;
+        String sql = "SELECT * FROM sejour WHERE id_type_vacance = ? ORDER BY RANDOM() LIMIT 1";
+        try {
+            PreparedStatement pst = Connect.getCon().prepareStatement(sql);
+            pst.setInt(1, idTypeVacance);
+            ResultSet rs = pst.executeQuery();
+            
+            if (rs.next()) {
+                sejour = new Sejour(
+                    rs.getInt("id_sejour"),
+                    rs.getString("titre"),
+                    rs.getString("description"),
+                    rs.getString("humeur"),
+                    rs.getString("image"),
+                    rs.getFloat("prix")
+                );
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return sejour;
+    }
 }

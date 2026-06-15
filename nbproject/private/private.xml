@@ -6,8 +6,6 @@
             <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/web/index.jsp</file>
             <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/web/WEB-INF/web.xml</file>
             <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/web/connexion.jsp</file>
-            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/Entite/Utilisateur.java</file>
-            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/DAO/Connect.java</file>
             <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/Entite/Sejour.java</file>
             <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/Entite/Profil.java</file>
             <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/DAO/UtilisateurDAO.java</file>
@@ -26,6 +24,29 @@
             <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/controller/DetailControlleur.java</file>
             <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/web/footer.jsp</file>
             <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/web/reservation.jsp</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/DAO/ReservationDAO.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/web/Paiement.jsp</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/Entite/Utilisateur.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/controller/ReservationControlleur.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/controller/PaiementControlleur.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/Entite/Paiement.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/web/facturation.jsp</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/Entite/Facture.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/DAO/PaiementDAO.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/DAO/FactureDAO.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/DAO/Connect.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/controller/ProfilControlleur.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/Entite/Reservation.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/DAO/ProfilDAO.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/controller/QuizControlleur.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/DAO/QuizDAO.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/Entite/Admin.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/DAO/AdminDAO.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/controller/AdminControlleur.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/src/java/controller/LogoutServlet.java</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/web/ajouterSejour.jsp</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/web/modifierSejour.jsp</file>
+            <file>file:/C:/Users/MR%20TECHNOLOGIES/Documents/NetBeansProjects/TravelMood/build/web/ajouterSejour.jsp</file>
         </group>
     </open-files>
 </project-private>

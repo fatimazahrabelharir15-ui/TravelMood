@@ -151,7 +151,7 @@
                     <p>Rejoignez-nous pour des voyages sur-mesure.</p>
                 </div>
                 
-                <form action="profil.jsp" method="POST" onsubmit="return validerMotsDePasse()">
+                <form action="UtilisateurControlleur" method="POST" onsubmit="return validerMotsDePasse()">
                     <input type="hidden" name="actionType" value="inscription">
                     
                     <div class="row g-2 mb-3">
@@ -168,6 +168,10 @@
                     <div class="mb-3">
                         <label for="regEmail" class="form-label fw-medium text-secondary small">Adresse Email</label>
                         <input type="email" class="form-control" id="regEmail" name="email" required placeholder="exemple@mail.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="regTel" class="form-label fw-medium text-secondary small">Téléphone</label>
+                        <input type="tel" class="form-control" id="regTel" name="telephone" placeholder="06XXXXXXXX">
                     </div>
 
                     <div class="mb-3">
