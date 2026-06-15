@@ -57,6 +57,90 @@ public class PaiementDAO {
     }
 
     return 0;
+<<<<<<< HEAD
+=======
+}
+    public ArrayList<Object[]> getAllPaiements() throws Exception {
+
+    ArrayList<Object[]> liste = new ArrayList<>();
+
+    String sql =
+        "SELECT " +
+        "u.nom, " +
+        "u.prenom, " +
+        "p.montant, " +
+        "p.methode_paiement, " +
+        "p.statut_paiement " +
+        "FROM paiement p " +
+        "JOIN reservation r ON p.id_reservation = r.id_reservation " +
+        "JOIN utilisateur u ON r.id_utilisateur = u.id_utilisateur " +
+        "ORDER BY p.id_paiement DESC";
+
+    PreparedStatement pst = Connect.getCon().prepareStatement(sql);
+
+    ResultSet rs = pst.executeQuery();
+
+    while (rs.next()) {
+
+        Object[] ligne = new Object[5];
+
+        ligne[0] = rs.getString("nom");
+        ligne[1] = rs.getString("prenom");
+        ligne[2] = rs.getDouble("montant");
+        ligne[3] = rs.getString("methode_paiement");
+        ligne[4] = rs.getString("statut_paiement");
+
+        liste.add(ligne);
+    }
+
+    return liste;
+}
+    public ArrayList<Object[]> getPaiementsParMethode() throws Exception {
+
+    ArrayList<Object[]> liste = new ArrayList<>();
+
+    String sql =
+        "SELECT methode_paiement, COUNT(*) AS total " +
+        "FROM paiement " +
+        "GROUP BY methode_paiement";
+
+    PreparedStatement pst = Connect.getCon().prepareStatement(sql);
+    ResultSet rs = pst.executeQuery();
+
+    while (rs.next()) {
+        Object[] ligne = new Object[2];
+        ligne[0] = rs.getString("methode_paiement");
+        ligne[1] = rs.getInt("total");
+        liste.add(ligne);
+    }
+
+    return liste;
+}
+    public ArrayList<Object[]> getChiffreAffairesParMois() throws Exception {
+
+    ArrayList<Object[]> liste = new ArrayList<>();
+
+    String sql =
+        "SELECT EXTRACT(MONTH FROM r.date_depart) AS mois, " +
+        "SUM(p.montant) AS total " +
+        "FROM paiement p " +
+        "JOIN reservation r ON p.id_reservation = r.id_reservation " +
+        "GROUP BY mois " +
+        "ORDER BY mois";
+
+    PreparedStatement pst = Connect.getCon().prepareStatement(sql);
+    ResultSet rs = pst.executeQuery();
+
+    while (rs.next()) {
+        Object[] ligne = new Object[2];
+        ligne[0] = rs.getInt("mois");
+        ligne[1] = rs.getDouble("total");
+        liste.add(ligne);
+    }
+
+    return liste;
+}
+>>>>>>> 49270c68072751f1f4f575846aba712c45c8b380
 }
     public ArrayList<Object[]> getAllPaiements() throws Exception {
 

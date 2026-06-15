@@ -41,5 +41,9 @@ public class UtilisateurDAO {
     }
 
     return 0;
+<<<<<<< HEAD
+=======
+}
+>>>>>>> 49270c68072751f1f4f575846aba712c45c8b380
 }
 }

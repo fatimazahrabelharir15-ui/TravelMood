@@ -85,6 +85,16 @@ public class Sejour {
 
    public String getTypeVacance() {
     return type_vacance;
+<<<<<<< HEAD
+=======
+}
+
+public void setTypeVacance(String typeVacance) {
+    this.type_vacance = typeVacance;
+}
+    
+    
+>>>>>>> 49270c68072751f1f4f575846aba712c45c8b380
 }
 
 public void setTypeVacance(String typeVacance) {

@@ -1,7 +1,10 @@
 <%@page import="Entite.Utilisateur"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Entite.Sejour"%>
+<<<<<<< HEAD
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+=======
+>>>>>>> 49270c68072751f1f4f575846aba712c45c8b380
 <%
     // SECURISATION DE L'ESPACE ADMIN
     // 1. On récupère l'objet Utilisateur complet stocké par le contrôleur

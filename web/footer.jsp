@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
 </main>
 
 <footer class="text-white py-5 mt-auto" style="background-color: #0D3249;">
@@ -10,7 +12,7 @@
           Travel<span style="color: #E86E4D;">Mood</span>
         </span>
         <p class="text-white-50 pe-lg-4">
-          Votre agence de voyages tout inclus, avec des recommandations personnalisées selon votre profil, budget et moral du moment.
+          Votre agence de voyages tout inclus, avec des recommandations personnalisÃ©es selon votre profil, budget et moral du moment.
         </p>
       </div>
 
@@ -21,8 +23,8 @@
           <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none opacity-75 text-white-hover">Europe</a></li>
           <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none opacity-75 text-white-hover">Asie</a></li>
           <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none opacity-75 text-white-hover">Afrique</a></li>
-          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none opacity-75 text-white-hover">Amériques</a></li>
-          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none opacity-75 text-white-hover">Océanie</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none opacity-75 text-white-hover">AmÃ©riques</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none opacity-75 text-white-hover">OcÃ©anie</a></li>
         </ul>
       </div>
 
@@ -32,7 +34,7 @@
         <ul class="list-unstyled mb-0">
           <li class="mb-2"><a style="cursor: pointer;" onclick="showPage('recommande')" class="text-white-50 text-decoration-none opacity-75 text-white-hover">Pour moi</a></li>
           <li class="mb-2"><a style="cursor: pointer;" onclick="showPage('sejours')" class="text-white-50 text-decoration-none opacity-75 text-white-hover">Catalogue</a></li>
-          <li class="mb-2"><a style="cursor: pointer;" onclick="showPage('reservation')" class="text-white-50 text-decoration-none opacity-75 text-white-hover">Réserver</a></li>
+          <li class="mb-2"><a style="cursor: pointer;" onclick="showPage('reservation')" class="text-white-50 text-decoration-none opacity-75 text-white-hover">RÃ©server</a></li>
           <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none opacity-75 text-white-hover">Groupes</a></li>
         </ul>
       </div>
@@ -41,10 +43,10 @@
       <div class="col-12 col-sm-4 col-lg-3">
         <h5 class="fw-bold mb-3 text-uppercase small" style="letter-spacing: 1px; color: #E86E4D;">Agence</h5>
         <ul class="list-unstyled mb-0">
-          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none opacity-75 text-white-hover">À propos</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none opacity-75 text-white-hover">Ã€ propos</a></li>
           <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none opacity-75 text-white-hover">Contact</a></li>
           <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none opacity-75 text-white-hover">CGV</a></li>
-          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none opacity-75 text-white-hover">Mentions légales</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none opacity-75 text-white-hover">Mentions lÃ©gales</a></li>
         </ul>
       </div>
       
@@ -52,7 +54,7 @@
 
     <!-- Section Basse : Copyright & Tech Stack -->
     <div class="pt-4 border-top border-secondary text-center text-white-50 small">
-      <p class="mb-1">© 2025 TravelMood </p>
+      <p class="mb-1">Â© 2025 TravelMood </p>
     </div>
   </div>
 </footer>
